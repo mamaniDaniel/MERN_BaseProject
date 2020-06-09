@@ -2,10 +2,12 @@
   "name": "MERN_BaseProject",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
-    "dev": "nodemon server/server.js"
+    "client": "npm run start --prefix client",
+    "server": "nodemon server/server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "start": "node server/server.js"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
